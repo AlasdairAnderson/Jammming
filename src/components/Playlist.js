@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import TrackList from './TrackList';
 import './Playlist.css'
 const ENDPOINT = 'https://api.spotify.com/v1/'
@@ -70,7 +70,6 @@ function Playlist(props) {
             <input id="playlistName" name="playlistName" type="text" className='input-feild' value={props.playlistName} onChange={props.handlePlaylistNameChange}/>
             <TrackList trackList={props.playListTracks} handleClick={props.handleClick} playlist='true'/>
             <button onClick={() => {
-                props.handleSavePlaylist(props.playListTracks);
                 addTracksToPlayist();
             }}>Save</button>
         </div>

@@ -1,13 +1,16 @@
-import React from 'react';
-import Searchbar from './Searchbar';
-import TrackList from './TrackList';
+import React, { useState, useEffect } from 'react';
 
-function SearchResults() {
+import TrackList from './TrackList';
+import './SearchResults.css'
+
+
+function SearchResults(props) {
+    const trackList = props.searchResult
 
     return(
-        <div className='searchResults'>
-            <Searchbar />
-            <TrackList />
+        <div className='listSection'>
+            <h2>Results</h2>
+            <TrackList trackList={trackList} updateTrackList={props.updateTrackList} handleClick={props.handleClick} playList='false' />
         </div>
     );
 

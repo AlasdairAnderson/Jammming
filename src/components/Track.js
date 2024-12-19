@@ -1,19 +1,21 @@
 import React, { useState }  from 'react';
+import './Track.css'
 
 function Track(props) {
-    const [trackImg, setTrackImg] = useState('');
-    const [trackName, setTrackName] = useState('');
-    const [albumName, setAlbumName] = useState('');
-    const [artistName, setArtistName] = useState('');
+    const [trackImg, setTrackImg] = useState(props.albumArt);
+    const [trackName, setTrackName] = useState(props.song);
+    const [albumName, setAlbumName] = useState(props.album);
+    const [artistName, setArtistName] = useState(props.artist);
 
     return(
-        <div className="track">
+        <>
             <img className="track-img" src={trackImg}/>
-            <p className="track-name">{trackName}</p>
-            <p className="album-name">{albumName}</p>
-            <p classname="artist-name">{artistName}</p>
-            <button alt="Add track to playlist">Add Track</button>
-        </div>
+            <div className='track-info'>
+                <p className="track-name">{trackName}</p>
+                <p className="album-name">{albumName}</p>
+                <p className="artist-name">{artistName}</p>
+            </div>
+        </>
     )
 };
 

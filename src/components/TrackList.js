@@ -1,15 +1,23 @@
 import React, {useState} from 'react';
 import Track from './Track';
+import './TrackList.css';
 
 function TrackList(props) {
-    const [tracks, setTracks] = useState('');
+    const tracks = props.trackList;
+
 
     return(
-        <div className="track-list">
+        <ul className="track-list">
             {tracks.map((track) => {
-                <Track />
+                return(
+                <li key={track.id} className='track'>
+                    <Track  albumArt={track.albumArt} song={track.name} artist={track.artist} album={track.album}/>
+                    <button alt="Add track to playlist" onClick={() => props.handleClick(track)} > { props.playList ? '+' : '-' }</button>
+                </li>
+                );
             })}
-        </div>
+            
+        </ul>
     );
 }
 

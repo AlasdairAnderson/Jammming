@@ -1,38 +1,219 @@
+/* App Layout */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #1A1A1D;
+  font-size: 16px;
+  color: #fff;
+  min-height: 100vh;
+  padding: 2em 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header Styling */
+.App-header {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.App-title {
+  font-size: 3.5em;
+  color: #FF9F00;
+  font-weight: bold;
+}
+
+.App-slogan {
+  margin-top: 0.5em;
+  font-size: 1.2em;
+  color: #DDD;
+  font-style: italic;
+}
+
+/* Main Content */
+main {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+}
+
+/* Search Section */
+.searchFeild {
+  display: flex;
+  gap: 1em;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+}
+
+input#searchTrack {
+  width: 60%;
+  padding: 0.8em;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #FFF;
+  font-size: 1em;
+  outline: none;
+}
+
+input#searchTrack:focus {
+  border: 2px solid #FF9F00;
+}
+
+button#submit {
+  background-color: #FF9F00;
   color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8em 1.5em;
+  cursor: pointer;
+  font-size: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+button#submit:hover {
+  background-color: #FF6F00;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Track Components Layout */
+.track-components {
+  display: flex;
+  gap: 2em;
+  justify-content:space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.listSection {
+  flex: 1;
+  background-color: #333;
+  border-radius: 10px;
+  padding: 1em;
+  min-width: 300px;
+  max-width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/*
+#playlist {
+  margin-right: 10px;
+}
+
+#searchResults {
+  margin-left: 10px;
+}
+*/
+/* Playlist Section */
+input#playlistName {
+  width: 90%;
+  padding: 0.8em;
+  border: none;
+  background-color: #444;
+  color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+  outline: none;
+  text-align: center;
+}
+
+input#playlistName:focus {
+  border: 2px solid #FF9F00;
+}
+
+button[data-testid="savePlaylist"] {
+  background-color: #FF9F00;
+  color: #fff;
+  padding: 0.8em 2em;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  margin-top: 1em;
+  cursor: pointer;
+}
+
+button[data-testid="savePlaylist"]:hover {
+  background-color: #FF6F00;
+}
+
+button[data-testid="savePlaylist"]:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+/* Track List */
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4E4E50;
+  color: #fff;
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
+}
+
+.track-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 5px;
+  margin-right: 1em;
+  flex-shrink: 0;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  flex-grow: 1;
+  padding: 0 1em;
+}
+
+.track-info p {
+  margin: 0.3em 0;
+}
+
+.track-name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.album-name,
+.artist-name {
+  font-size: 1em;
+  color: #FF9F00;
+}
+
+.track button {
+  background-color: #FF9F00;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 1em 2em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.track button:hover {
+  background-color: #FF6F00;
+  transform: scale(1.05);
+}
+
+.track button:active {
+  transform: scale(0.95);
+}
+
+.track-list{
+  padding: 0;
+  width: 100%;
 }

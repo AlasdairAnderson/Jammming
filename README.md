@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+# Jammming
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Jammming is a React-based web application that allows users to search for tracks on Spotify, create custom playlists, and save them directly to their Spotify account. This app leverages Spotify's Web API to provide a seamless and interactive music curation experience.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Spotify Authentication**: Login with your Spotify account to access its functionality.
+- **Search Tracks**: Search for tracks from Spotify’s database using keywords.
+- **Interactive Playlist Builder**: Add or remove tracks to create a personalized playlist.
+- **Save Playlist**: Save the created playlist directly to your Spotify account.
+- **Responsive Design**: Works across different screen sizes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **React**: Front-end library for building the user interface.
+- **Spotify Web API**: For track searching and playlist management.
+- **CSS**: Custom styling for an intuitive UI.
+- **Jest & React Testing Library**: For unit and integration testing.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Setup and Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   git clone https://github.com/your-username/jammming.git
+   cd jammming
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install dependencies**:
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Create a Spotify Developer Application**:
+   - Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/).
+   - Create a new application and retrieve your Client ID.
+   - Set the Redirect URI to `http://localhost:3000` in your app settings.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Set up environment variables**:
+   Create a `.env` file in the project root and add the following:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```env
+   REACT_APP_SPOTIFY_CLIENT_ID=your-client-id
+   REACT_APP_REDIRECT_URI=http://localhost:3000
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. **Run the application**:
 
-## Learn More
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. **Access the application**:
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+├── src
+│   ├── components
+│   │   ├── Authorisation.js
+│   │   ├── Playlist.js
+│   │   ├── Searchbar.js
+│   │   ├── SearchResults.js
+│   │   └── TrackList.js
+│   ├── App.css
+│   ├── App.js
+│   └── index.js
+├── public
+├── .env
+├── package.json
+└── README.md
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Testing
 
-### Making a Progressive Web App
+1. **Run Tests**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   ```bash
+   npm test
+   ```
 
-### Advanced Configuration
+2. **Test Coverage**:
+   - Tests include unit tests for individual components and integration tests for user flows.
+   - Focused on API interaction, state updates, and UI rendering.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. **Login**:
+   - Click on the "Login to Spotify" button to authenticate.
 
-### `npm run build` fails to minify
+2. **Search for Tracks**:
+   - Use the search bar to find your favorite tracks.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. **Add to Playlist**:
+   - Click the "Add" button next to a track to include it in your playlist.
+
+4. **Save Playlist**:
+   - Enter a playlist name and click "Save" to upload your playlist to Spotify.
+
+---
+
+## Known Issues
+
+- **Multiple Save Buttons**: Ensure unique identifiers for buttons to avoid multiple roles conflicts.
+- **Deprecation Warnings**: Address warnings such as `ReactDOMTestUtils.act` deprecation by using `React.act`.
+
+---
+
+## Future Improvements
+
+- Add drag-and-drop functionality for track reordering.
+- Implement user feedback (e.g., loading indicators, success messages).
+- Improve error handling and display meaningful error messages.
+- Enhance UI/UX with animations and modern design elements.
+
+---
+
+## Contributing
+
+Contributions are welcome! Please fork the repository, make changes, and submit a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+---
+
+## Acknowledgements
+
+- Spotify for providing the Web API.
+- React for a robust front-end framework.
+- [Codecademy](https://www.codecademy.com) for inspiring the project.

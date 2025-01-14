@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Searchbar.css'
 
 const BASEURL = 'https://api.spotify.com/v1/search';
 
@@ -60,7 +59,7 @@ function Searchbar(props) {
     return(
         <form className="searchFeild" onSubmit={searchTracks}>
             <input id="searchTrack" name="searchTrack" type="text" onChange={handleChange} value={searchTrack} className='input-feild'/>
-            <button id="submit" type="submit">Search</button>
+            <button data-testid='search' id="submit" type="submit">Search</button>
         </form>
     );
 

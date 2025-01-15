@@ -1,11 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
 import Searchbar from './components/Searchbar';
 import { requestAuthentication, getAccessToken, getUser } from './components/Authorisation';
 
-const CLIENTID = 'INSERT-CLIENTID';
+const CLIENTID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 
 function App() {
   const [searchResponse, setSearchResponse] = useState([]);

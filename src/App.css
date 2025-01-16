@@ -11,6 +11,28 @@
   font-family: 'Arial', sans-serif;
 }
 
+/* Login Styling */
+.Login {
+  width: 100%;
+  margin-right: 40px;
+  display: flex;
+  justify-content: end;
+}
+
+.Login button {
+  background-color: #FF9F00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8em 1.5em;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.Login button:hover{
+  background-color: #FF6F00;
+}
+
 /* Header Styling */
 .App-header {
   text-align: center;
@@ -174,6 +196,7 @@ button[data-testid="savePlaylist"]:disabled {
   text-align: left;
   flex-grow: 1;
   padding: 0 1em;
+  width: 40%;
 }
 
 .track-info p {

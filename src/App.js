@@ -63,20 +63,19 @@ function App() {
 
   return (
     <div className="App">
+      <div className='Login'>
+        <button onClick={() => (window.location.href = AuthUrl)}>Login to Spotify</button>
+      </div>
       <header className="App-header">
         <h1 className="App-title">Jammming</h1>
         <p className="App-slogan">Search Spotify and build your ultimate playlist</p>
       </header>
-      <main>
-        {!userToken ? 
-          <button onClick={() => (window.location.href = AuthUrl)}>Login to Spotify</button> : <><Searchbar searchResponse={setSearchResponse} token={userToken}/>
-          <div className='track-components'>
-            <SearchResults searchResult={searchResponse} handleClick={addTrack} />
-            <Playlist playListTracks={playListTracks} handleClick={removeTrack} playlistName={playlistName} handlePlaylistNameChange={handlePlaylistNameChange} user={user} token={userToken}/>
-          </div>
-          </>
-        }
-          
+      <main> 
+        <Searchbar searchResponse={setSearchResponse} token={userToken}/>
+        <div className='track-components'>
+          <SearchResults searchResult={searchResponse} handleClick={addTrack} />
+          <Playlist playListTracks={playListTracks} handleClick={removeTrack} playlistName={playlistName} handlePlaylistNameChange={handlePlaylistNameChange} user={user} token={userToken}/>
+        </div>         
       </main>
     </div>
   );

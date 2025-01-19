@@ -11,7 +11,7 @@ export function requestAuthentication(clientId) {
   url += '?response_type=token';
   url += '&client_id=' + encodeURIComponent(clientId);
   url += '&scope=' + encodeURIComponent(scope);
-  url += '&redirect_uri=' + encodeURIComponent('http://localhost:3000/');
+  url += '&redirect_uri=' + encodeURIComponent(process.env.REACT_APP_REDIRECT_URI);
   url += '&state=' + encodeURIComponent(state);
 
   return url; 
